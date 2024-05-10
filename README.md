@@ -5,6 +5,7 @@ Create link to verify email upon user creation and verify the email at auth/acti
 To start directus server:
 
 ```console
+$ mkdir database volumes
 $ cd extensions/directus-extension-auth
 $ npm run build
 $ docker compose up

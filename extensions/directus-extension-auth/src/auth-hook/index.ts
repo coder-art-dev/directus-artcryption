@@ -48,7 +48,7 @@ export default defineHook(({ filter, action }, {services, env}) => {
         const tokenPayload = { email, scope: 'invite' };
 
         const token = sign(tokenPayload, env.SECRET, {
-            expiresIn: '7d',
+            expiresIn: '1h',
             issuer: 'directus'
         });
 
@@ -60,4 +60,8 @@ export default defineHook(({ filter, action }, {services, env}) => {
         await mailerSend.email.send(emailParams);
         console.log("sent email");
 	});
+
+    filter('users.update', async (input) => {
+
+    })
 });
