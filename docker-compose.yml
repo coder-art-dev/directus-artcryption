@@ -1,0 +1,24 @@
+services:
+  cache:
+    image: redis:6
+  directus:
+    image: directus/directus:10.10.5
+    ports:
+      - 8055:8055
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      KEY: 68b48991-7b81-4b1c-8c0d-c06152606419
+      SECRET: d7e2d250-ea1d-436e-99d0-a72e7f982f48
+      ADMIN_EMAIL: admin@example.com
+      ADMIN_PASSWORD: password
+      DB_CLIENT: sqlite3
+      DB_FILENAME: /directus/database/data.db
+      WEBSOCKETS_ENABLED: true
+      FRONTEND_URL: http://localhost:8055
+      CORS_ENABLED: true
+      MAIL_API_KEY: mlsn.a47163c9ed0394c1c15df358d7e986fe8ad4f9ec7a0762770d4f391978403ceb
+
+
